@@ -5,11 +5,11 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 
 const {
-  title = 'Astro',
-  description = 'A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
+  title = 'Lotus Code',
+  description = 'Code services for the modern web',
   url,
   image = '/social-preview-image.png',
-  author = 'Mark Teekman',
+  author = 'Lotus LLC',
 } = Astro.props
 ---
 
@@ -34,7 +34,7 @@ const {
   </head>
   <body>
     <Header />
-    <main id="main-content">
+    <main id="main-content darkmode">
       <slot />
     </main>
     <Footer />
