@@ -70,6 +70,7 @@
 <!-- } -->
 <script>
   const form = document.querySelector('form')
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
     const formData = new FormData(form)
@@ -78,10 +79,11 @@
       throw new Error('form submission failed')
       return
     }
-    const response = await fetch('https://lautus.io/request-consultation', {
+    const response = await fetch('https://email.lautus.io/request-consultation', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify(body),
     })
