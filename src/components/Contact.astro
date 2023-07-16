@@ -1,0 +1,105 @@
+---
+---
+
+<h1>Contact us for a job quote</h1>
+<div class="text-[var(--neutral-900)]">
+  <form class="flex w-72 flex-col gap-3">
+    <label class="flex flex-col">
+      <span class="text-lg font-semibold">First Name</span>
+      <input
+        type="text"
+        name="contact_first"
+        required
+        class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1"
+      />
+    </label>
+    <label class="flex flex-col">
+      <span class="text-lg font-semibold">Last Name</span>
+      <input
+        type="text"
+        name="contact_last"
+        required
+        class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1"
+      />
+    </label>
+    <label class="flex flex-col">
+      <span class="text-lg font-semibold">Company</span>
+      <input type="text" name="company" class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1" />
+    </label>
+    <label class="flex flex-col">
+      <span class="text-lg font-semibold">Email:</span>
+      <input
+        type="email"
+        name="contact_email"
+        required
+        class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1"
+      />
+    </label>
+    <label class="flex flex-col">
+      <span class="text-lg font-semibold">Phone:</span>
+      <input
+        type="phone"
+        name="contact_phone"
+        class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1"
+      />
+    </label>
+    <label class="hidden">
+      <span class="text-lg font-semibold">Project Name:</span>
+      <input
+        type="text"
+        name="project_name"
+        class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1"
+      />
+    </label>
+    <label class="flex flex-col">
+      <span class="text-lg font-semibold">Brief Job Description:</span>
+      <textarea name="job_description" class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1"
+      ></textarea>
+    </label>
+    <button
+      class="my-6 rounded border-2 border-[var(--neutral-900)] p-4 font-bold transition-colors hover:bg-[var(--neutral-900)] hover:text-[var(--neutral-100)]"
+    >
+      SUBMIT
+    </button>
+  </form>
+</div>
+
+<!-- The response will be a 200 OK with the following body: -->
+<!-- { -->
+<!--   "message": "Thank you for your request. We will be in touch shortly." -->
+<!-- } -->
+<script>
+  const form = document.querySelector('form')
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const formData = new FormData(form)
+    const body = Object.fromEntries(formData.entries())
+    if(body.project_name !== "") {
+      throw new Error('form submission failed')
+      return
+    }
+    const response = await fetch('https://lautus.io/request-consultation', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+    const json = await response.json()
+    console.log(json)
+  })
+</script>
+
+<!-- padding: 1rem;
+color: var(--neutral-900);
+font-weight: bold;
+border: 3px solid var(--neutral-900);
+border-radius: 3px;
+text-decoration: none;
+transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out; -->
+
+<!-- &:where(:hover, :focus) {
+  color: var(--neutral-100);
+  background-color: var(--neutral-900);
+  text-decoration: underline;
+} -->
