@@ -1,4 +1,11 @@
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: The Impact of Tech Debt
+---
+
 # The Impact of Tech Debt
+
+[//]: # (Matthew Burkard / 1:29 PM EST • July 22, 2023)
 
 In the world of software development, the concept of "Tech Debt" has become a crucial
 topic of discussion. It refers to the consequences of taking shortcuts or compromising

@@ -1,3 +1,8 @@
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: Use an Open Source Tech Stack
+---
+
 # Use an Open Source Tech Stack
 
 [//]: # (Matthew Burkard / 10:21 AM EST • July 16, 2023)

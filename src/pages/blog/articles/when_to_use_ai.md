@@ -1,3 +1,8 @@
+---
+layout: ../../../layouts/MarkdownLayout.astro
+title: When to Use AI
+---
+
 # When to Use AI
 
 [//]: # (Matthew Burkard / 6:01 PM EST • July 15, 2023)
