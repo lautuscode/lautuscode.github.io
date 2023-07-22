@@ -75,6 +75,7 @@
     e.preventDefault()
     const formData = new FormData(form)
     const body = Object.fromEntries(formData.entries())
+    form.reset()
     if(body.project_name !== "") {
       throw new Error('form submission failed')
       return
@@ -87,21 +88,6 @@
       },
       body: JSON.stringify(body),
     })
-    const json = await response.json()
-    console.log(json)
+    await response.json()
   })
 </script>
-
-<!-- padding: 1rem;
-color: var(--neutral-900);
-font-weight: bold;
-border: 3px solid var(--neutral-900);
-border-radius: 3px;
-text-decoration: none;
-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out; -->
-
-<!-- &:where(:hover, :focus) {
-  color: var(--neutral-100);
-  background-color: var(--neutral-900);
-  text-decoration: underline;
-} -->
