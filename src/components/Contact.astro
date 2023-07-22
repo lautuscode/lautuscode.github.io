@@ -1,33 +1,39 @@
 ---
+import Loading from './Loading.astro'
+import Asterisk from './form/Asterisk.astro'
 ---
 
+<Loading />
 <h1>Contact us for a job quote</h1>
 <div class="text-[var(--neutral-900)]">
-  <form class="flex w-72 flex-col gap-3">
-    <label class="flex flex-col">
-      <span class="text-lg font-semibold">First Name</span>
-      <input
-        type="text"
-        name="contact_first"
-        required
-        class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1"
-      />
-    </label>
-    <label class="flex flex-col">
-      <span class="text-lg font-semibold">Last Name</span>
-      <input
-        type="text"
-        name="contact_last"
-        required
-        class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1"
-      />
-    </label>
+  <form class="flex w-72 flex-col gap-3 md:w-full">
+    <div class="flex flex-col gap-3 md:flex-row">
+      <label class="flex flex-col">
+        <div class="text-lg font-semibold">First Name: <Asterisk /></div>
+        <input
+          type="text"
+          name="contact_first"
+          required
+          class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1"
+        />
+      </label>
+      <label class="flex flex-col">
+        <span class="text-lg font-semibold">Last Name: <Asterisk /></span>
+        <input
+          type="text"
+          name="contact_last"
+          required
+          class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1"
+        />
+      </label>
+    </div>
+
     <label class="flex flex-col">
       <span class="text-lg font-semibold">Company</span>
       <input type="text" name="company" class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1" />
     </label>
     <label class="flex flex-col">
-      <span class="text-lg font-semibold">Email:</span>
+      <span class="text-lg font-semibold">Email: <Asterisk /></span>
       <input
         type="email"
         name="contact_email"
@@ -38,7 +44,7 @@
     <label class="flex flex-col">
       <span class="text-lg font-semibold">Phone:</span>
       <input
-        type="phone"
+        type="tel"
         name="contact_phone"
         class="rounded-sm border-2 border-[var(--neutral-900)] bg-transparent p-1"
       />
@@ -62,6 +68,8 @@
       SUBMIT
     </button>
   </form>
+  <p id="alert" hidden class="bg-black p-3 text-center text-lg text-red-100 max-w-sm">
+  </p>
 </div>
 
 <!-- The response will be a 200 OK with the following body: -->
@@ -69,17 +77,41 @@
 <!--   "message": "Thank you for your request. We will be in touch shortly." -->
 <!-- } -->
 <script>
-  const form = document.querySelector('form')
+  const form = document.querySelector('form')!
+  const loading = document.querySelector('#loading')!
+  const alert = document.querySelector('#alert')!
+
+  let showLoading = false
+
+  function render() {
+    if (showLoading) {
+      // set Loading html to not be hidden
+      loading.removeAttribute('hidden')
+    } else {
+      loading.setAttribute('hidden', '')
+    }
+  }
+
+  function checkAlert(statusCode) {
+    alert.removeAttribute('hidden')
+    if (statusCode !== 200) {
+      alert.innerHTML = 'Something went wrong. Please try again later.'
+    } else if (statusCode === 200) {
+      alert.innerHTML = 'Thank you for your request. We will be in touch shortly.'
+    } else {
+      alert.setAttribute('hidden', '')
+    }
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
     const formData = new FormData(form)
     const body = Object.fromEntries(formData.entries())
-    form.reset()
-    if(body.project_name !== "") {
+    if (body.project_name !== '') {
       throw new Error('form submission failed')
-      return
     }
+    showLoading = true
+    render()
     const response = await fetch('https://email.lautus.io/request-consultation', {
       method: 'POST',
       headers: {
@@ -88,6 +120,12 @@
       },
       body: JSON.stringify(body),
     })
-    await response.json()
+    console.log(response)
+    showLoading = false
+    render()
+    if (response.status === 200) {
+      form.reset()
+    }
+    checkAlert(response.status)
   })
 </script>
