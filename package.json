@@ -1,9 +1,13 @@
 {
-  "name": "accessible-astro-starter",
+  "name": "lautus-company-site",
   "description": "Lautus company website.",
   "version": "1.0.0",
-  "author": "Mark Teekman",
+  "author": "Brian Burkard",
   "homepage": "https://lautustech.com/",
+  "contributors": [
+    "Brian Burkard",
+    "Matthew Burkard"
+  ],
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
