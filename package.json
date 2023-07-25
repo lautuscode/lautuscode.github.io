@@ -1,7 +1,7 @@
 {
   "name": "accessible-astro-starter",
   "description": "Lautus company website.",
-  "version": "1.0.0",
+  "version": "1.0.1-0",
   "author": "Mark Teekman",
   "homepage": "https://lautustech.com/",
   "scripts": {
