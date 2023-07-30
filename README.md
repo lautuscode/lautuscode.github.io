@@ -1,14 +1,11 @@
 # Lautus Tech
 
-![social-preview-image](https://user-images.githubusercontent.com/3909046/219942674-9894853e-def8-4180-84b8-6b577dacfcaa.png)
+![social-preview-image](public/social-preview-image.png)
 
-Accessible Astro Starter is a ready to use, SEO and a11y friendly blogging theme. It
-contains plenty of accessible components to build several page types, Tailwind CSS to
-help you build faster and example pages such as a dynamic Blog, 404, Markdown and MDX.
-This theme is designed to help you build your project faster and provide a solid base
-for accessibility!
+Lautus Tech company website created
+using [Accessible Astro Starter](https://github.com/markteekman/accessible-astro-starter).
 
-🚀 [Live Preview](https://accessible-astro.netlify.app/)
+🚀 [Deployed Site](https://lautustech.com/)
 
 ## ♿ (Accessibility) Features
 
