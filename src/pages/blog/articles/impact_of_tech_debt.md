@@ -97,6 +97,6 @@ satisfaction, and ultimately delivering a higher-quality product.
 
 At Lautus we have a commitment to writing clean maintainable code. Lautus means clean
 and elegant, it's our goal to provide future-proof software solutions without falling
-into the traps resulting in tech debt. Companies bleed money maintaining software built
-on weak foundations. We offer premium solutions designed to be maintainable, upgradable,
-performant, and secure.
+into the traps that result in tech debt. Companies bleed money maintaining software
+built on weak foundations. We offer premium solutions designed to be maintainable,
+upgradable, performant, and secure.
