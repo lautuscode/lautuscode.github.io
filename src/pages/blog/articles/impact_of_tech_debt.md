@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
+layout: ../../../layouts/BlogLayout.astro
 title: The Impact of Tech Debt
 ---
 

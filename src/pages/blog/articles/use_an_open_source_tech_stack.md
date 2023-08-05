@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
+layout: ../../../layouts/BlogLayout.astro
 title: Use an Open Source Tech Stack
 ---
 
