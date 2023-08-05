@@ -10,7 +10,7 @@ const { frontmatter } = Astro.props
     <div class="space-content my-12">
       <Breadcrumbs>
         <BreadcrumbsItem href="/" label="Home" />
-        <BreadcrumbsItem href="/blog" label="Blog" />
+        <BreadcrumbsItem href="/blog/" label="Blog" />
         <BreadcrumbsItem currentPage={true} label={frontmatter.title} />
       </Breadcrumbs>
       <div class="space-content mx-auto mt-24 max-w-3xl text-lg sm:text-xl">
