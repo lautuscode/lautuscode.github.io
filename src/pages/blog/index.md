@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownLayout.astro
-title: Blogs
+title: Blog
 ---
 
 - [Impact of Tech Debt](./articles/impact_of_tech_debt)

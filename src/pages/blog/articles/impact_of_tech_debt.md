@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/MarkdownLayout.astro
+layout: ../../../layouts/BlogLayout.astro
 title: The Impact of Tech Debt
 ---
 
@@ -14,6 +14,7 @@ the initial progress of a project, tech debt can lead to long-term issues that i
 the overall efficiency, maintainability, and safety of the codebase. In this article, we
 will delve into the implications of tech debt and explore the balance between speed and
 clean code.
+
 
 ## Speed vs. Cleanliness: The False Dichotomy
 
